@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block sty %}
+<style>
+    .chat-container {
+      height: 400px; /* Set the height for the chat window */
+      overflow-y: auto; /* Enable vertical scrolling */
+      border: 1px solid #000000;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #433d3d;
+      width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .message-bubble {
+      padding: 10px 15px;
+      border-radius: 15px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      max-width: 70%;
+      font-size: 16px;
+    }
+
+    .message-received {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    .message-sent {
+      background-color: #dcf8c6;
+    }
+
+    /* Profile styling */
+    .profile-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #007bff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      color: white;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+    .profile-icon-right {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .message-row {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .message-row.received {
+      flex-direction: row;
+    }
+
+    .message-row.sent {
+      flex-direction: row-reverse;
+    }
+
+    /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+  </style>
+{% endblock %}
+
+{% block content %}
+<wrapper>
+<div class="container mt-4" style="margin-top: 100px;">
+    <div style="margin-left: auto; margin-right: auto; text-align: center; padding-top: 10px;">
+      <h4>OG group</h4>
+      <p style="color: green;"> 6 online</p>
+    </div>
+    <div class="chat-container">
+      <div class="row g-3">
+        <!-- Received message (left) with profile -->
+        <div class="col-12 message-row received">
+          <div class="profile-icon">A</div> <!-- Profile Icon -->
+          <div class="message-bubble message-received">
+            You fine pass Kim Kardashian
+          </div>
+        </div>
+
+        <!-- Another received message (left) -->
+        <div class="col-12 message-row received">
+          <div class="profile-icon">A</div> <!-- Profile Icon -->
+          <div class="message-bubble message-received">
+            Wey this your cloth sef
+          </div>
+        </div>
+
+        <!-- Sent message (right) with profile -->
+        <div class="col-12 message-row sent">
+          <div class="profile-icon profile-icon-right">You</div> <!-- Profile Icon -->
+          <div class="message-bubble message-sent">
+            You for don get like 1million followers for Instagram
+          </div>
+        </div>
+
+        <!-- More messages for testing scrolling -->
+        <div class="col-12 message-row received">
+          <div class="profile-icon">A</div> <!-- Profile Icon -->
+          <div class="message-bubble message-received">
+            Lol, I swear
+          </div>
+        </div>
+
+        <div class="col-12 message-row received">
+          <div class="profile-icon">A</div> <!-- Profile Icon -->
+          <div class="message-bubble message-received">
+            I don dey laugh since
+          </div>
+        </div>
+
+        <div class="col-12 message-row sent">
+          <div class="profile-icon profile-icon-right">You</div> <!-- Profile Icon -->
+          <div class="message-bubble message-sent">
+            No mind them jare
+          </div>
+        </div>
+
+        <div class="col-12 message-row received">
+          <div class="profile-icon">A</div> <!-- Profile Icon -->
+          <div class="message-bubble message-received">
+            E make sense sha
+          </div>
+        </div>
+
+
+        <div class="col-12 message-row sent">
+          <div class="profile-icon profile-icon-right">You</div> <!-- Profile Icon -->
+          <div class="message-bubble message-sent">
+            Na so e suppose be
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input section -->
+  <div class="chat-input" style="width: 700px; margin-left: auto; margin-right: auto;">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Type your message..." aria-label="Message input" aria-describedby="send-button">
+      <button class="btn btn-secondary" type="button" id="send-button">Send</button>
+    </div>
+  </div>
+</div>
+</wrapper>
+{% endblock %}
