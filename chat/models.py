@@ -1,27 +1,21 @@
 from django.db import models
+from django.contrib.auth.models import User
 # Create your models here.\
 
-class NickNames(models.Model):
-    Nickname = models.CharField(max_length=20, unique=True)
 
-    def __str__(self) -> str:
-        return self.Nickname
 
 class ChatGroup(models.Model):
     Group_name = models.CharField(max_length=50)
-    
+    members = models.ManyToManyField(User, related_name='chat_groups', blank=True)
 
     def __str__(self) -> str:
-        return self.Group_name
-    
+        return self.Group_name 
+      
 class ChatMessages(models.Model):
     group = models.ForeignKey(ChatGroup, related_name='chat_messages', on_delete=models.CASCADE)
-    author = models.ForeignKey(NickNames, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.CharField(max_length=300, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self) -> str:
-        return self.body
 
     class Meta:
         ordering = ['created']

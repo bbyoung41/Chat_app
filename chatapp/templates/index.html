@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card" style="width: 18rem; margin-left: auto; margin-right: auto; margin-top: 70px;">
+    <div class="card-body">
+      <h5 class="card-title">Welcome to chat_app</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">Please enter the chat room name</h6>
+      <form id="room-form" method="GET">
+        {% csrf_token %}
+        <div class="chat-input" style=" margin-left: auto; margin-right: auto; ">
+          <div class="input-group">
+            <input id="room-name-input" type="text" class="form-control" placeholder="Room name" aria-label="Message input" aria-describedby="send-button" name="room_name">
+            <button class="btn btn-secondary" type="submit" id="send-button">Enter</button>
+          </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+<script>
+  document.getElementById('room-form').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevent the form from submitting the usual way
+
+      const roomNameInput = document.getElementById('room-name-input');
+      const roomName = roomNameInput.value.trim();
+
+      if (roomName) {
+          // Redirect to the chat room page dynamically
+          window.location.href = `/home/${roomName}/`;
+      } else {
+          alert('Please enter a valid room name');
+      }
+
+  
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block sty %}
+<style>
+    .user {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 70%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+}
+
+.one {
+  background-image: url('https://i.pinimg.com/474x/9d/7e/80/9d7e80a2c602c3e1cad1850582ba019f.jpg');
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="card " style="width: 18rem; margin-left: auto; margin-right: auto; margin-top: 80px;">
+        <div class="user one" style="margin-left: auto; margin-right: auto; margin-top: 50px;"> 
+        </div>
+        <div class="card-body ">
+          <h5 class="card-title" style="text-align: center;">{{ user.username }}</h5>
+        </div>
+      </div>
+{% endblock %}
