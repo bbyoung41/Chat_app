@@ -1,1 +1,18 @@
-{% include 'chat.html' %}
+{% extends 'chat.html' %}
+{% block sent %}
+    {% for detail in group_details %} 
+        <div class="col-12 message-row sent">
+            <div class="profile-icon profile-icon-right">You</div> <!-- Profile Icon -->
+            <div class="message-bubble message-sent"> {{detail.body}}</div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block received %}
+    {% for detail in group_details %}
+        <div class="col-12 message-row received">
+            <div class="profile-icon">A</div> <!-- Profile Icon -->
+            <div class="message-bubble message-received">{{detail.body}}</div>
+        </div>
+    {% endfor %}
+{% endblock %}

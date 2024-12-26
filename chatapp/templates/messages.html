@@ -1,0 +1,15 @@
+<div class="col-12 message-row sent">
+    <div class="profile-icon profile-icon-right">You</div> <!-- Profile Icon -->
+    <div class="message-bubble message-sent">
+        hello
+    </div>
+</div>
+
+<div class="col-12 message-row received">
+    <div class="profile-icon">A</div> <!-- Profile Icon -->
+    <div class="message-bubble message-received">
+      {% block received %}
+        good
+      {% endblock %}
+    </div>
+  </div>
